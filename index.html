@@ -774,17 +774,33 @@
 
               
                <div class="cmp--hd-nav-links cmp mobile">
-                                                <div class="lyt--hd-nav-links lyt"  id="language-select">
-
-                                                   <a href="#" data-lang="en" class="cmp--hd-nav-link">English</a>
-
-                                                   <a href="#" data-lang="de" class="cmp--hd-nav-link">Deutsch</a>
-
-                                                    <a href="#" data-lang="es" class="cmp--hd-nav-link">Español</a>
-
-                                                  
-                                                </div>
-                                            </div>      
+                   <div class="lyt--hd-nav-links lyt" id="language-select">
+                       <a href="#" data-lang="en" class="cmp--hd-nav-link cmp w-inline-block">
+                           <div class="lyt--hd-nav-link lyt">
+                               <div class="wr_p--hd-nav-link wr_p">
+                                   <p class="p--nav">English</p>
+                               </div>
+                               <div class="el--hd-nav-link el"></div>
+                           </div>
+                       </a>
+                       <a href="#" data-lang="de" class="cmp--hd-nav-link cmp w-inline-block">
+                           <div class="lyt--hd-nav-link lyt">
+                               <div class="wr_p--hd-nav-link wr_p">
+                                   <p class="p--nav">Deutsch</p>
+                               </div>
+                               <div class="el--hd-nav-link el"></div>
+                           </div>
+                       </a>
+                       <a href="#" data-lang="es" class="cmp--hd-nav-link cmp w-inline-block">
+                           <div class="lyt--hd-nav-link lyt">
+                               <div class="wr_p--hd-nav-link wr_p">
+                                   <p class="p--nav">Español</p>
+                               </div>
+                               <div class="el--hd-nav-link el"></div>
+                           </div>
+                       </a>
+                   </div>
+               </div>      
 <div id="language-switcher" class="cmp--dd-nav-link cmp w-dropdown">
   <div class="lyt--dd-nav-link lyt w-dropdown-toggle">
     <div class="wr_p--hd-nav-link wr_p">
@@ -793,40 +809,104 @@
     <div class="wr_ico--hd-nav-link wr_ico">
       <div class="ico--hd-nav-link ico w-icon-dropdown-toggle"></div>
     </div>
+    <div class="el--hd-nav-link el dd"></div>
   </div>
-
-
   <nav class="lyt--dd-nav-links lyt w-dropdown-list">
-    <div id="language-select" class="lyt--dd-nav-link">
-      <a href="#" data-lang="en" class="cmp--hd-nav-link">English</a>
-      <a href="#" data-lang="de" class="cmp--hd-nav-link">Deutsch</a>
-      <a href="#" data-lang="es" class="cmp--hd-nav-link">Español</a>
+    <div id="language-dropdown" class="lyt--dd-nav-links lyt">
+        <a href="#" data-lang="en" class="cmp--hd-nav-link cmp w-inline-block">
+            <div class="lyt--hd-nav-link lyt">
+                <div class="wr_p--hd-nav-link wr_p">
+                    <p class="p--nav">English</p>
+                </div>
+                <div class="el--hd-nav-link el"></div>
+            </div>
+        </a>
+        <a href="#" data-lang="de" class="cmp--hd-nav-link cmp w-inline-block">
+            <div class="lyt--hd-nav-link lyt">
+                <div class="wr_p--hd-nav-link wr_p">
+                    <p class="p--nav">Deutsch</p>
+                </div>
+                <div class="el--hd-nav-link el"></div>
+            </div>
+        </a>
+        <a href="#" data-lang="es" class="cmp--hd-nav-link cmp w-inline-block">
+            <div class="lyt--hd-nav-link lyt">
+                <div class="wr_p--hd-nav-link wr_p">
+                    <p class="p--nav">Español</p>
+                </div>
+                <div class="el--hd-nav-link el"></div>
+            </div>
+        </a>
     </div>
   </nav>
 </div>
 
+
+
+
+
+
+
 <style>
+
+
+
+
+
+/* Language selector styles */
 #language-select {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 10px;
+  gap: 4px;
 }
 
-#language-select a {
-  font-size: 18px;
+#language-dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 0;
+}
+
+#language-select .cmp--hd-nav-link,
+#language-dropdown .cmp--hd-nav-link {
+  display: block;
   text-decoration: none;
-  color: #333;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  color: inherit;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
 }
 
-#language-select a:hover {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  border-bottom: 1px solid #ccc;
+#language-select .lyt--hd-nav-link,
+#language-dropdown .lyt--hd-nav-link {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 4px;
 }
+
+#language-select .el--hd-nav-link,
+#language-dropdown .el--hd-nav-link {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+#language-select .cmp--hd-nav-link:hover .el--hd-nav-link,
+#language-dropdown .cmp--hd-nav-link:hover .el--hd-nav-link {
+  transform: scaleX(1);
+}
+
+#language-select .cmp--hd-nav-link.w--current .el--hd-nav-link,
+#language-dropdown .cmp--hd-nav-link.w--current .el--hd-nav-link {
+  transform: scaleX(1);
+}
+
+
 
 .w-dropdown-list {
   position: absolute;
@@ -1256,6 +1336,8 @@
                         <div class="sc_f--case-studies sc_f"></div>
                     </div>
                 </section>
+
+
                 <section class="sc--compares sc">
                     <div class="cr--compares cr">
                         <div class="sc_h--compares sc_h">
